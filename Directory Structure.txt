@@ -1,0 +1,1692 @@
+Directory structure:
+└── akikhossain-Employee-Management-System/
+    ├── README.md
+    ├── artisan
+    ├── composer.json
+    ├── composer.lock
+    ├── package.json
+    ├── phpunit.xml
+    ├── vite.config.js
+    ├── .editorconfig
+    ├── .env.example
+    ├── app/
+    │   ├── Console/
+    │   │   └── Kernel.php
+    │   ├── Exceptions/
+    │   │   └── Handler.php
+    │   ├── Http/
+    │   │   ├── Kernel.php
+    │   │   ├── Controllers/
+    │   │   │   ├── AttendanceController.php
+    │   │   │   ├── Controller.php
+    │   │   │   ├── DesignationController.php
+    │   │   │   ├── HomeController.php
+    │   │   │   ├── LeaveController.php
+    │   │   │   ├── OrganizationController.php
+    │   │   │   ├── PayrollController.php
+    │   │   │   ├── SalaryController.php
+    │   │   │   ├── ServicesController.php
+    │   │   │   ├── TaskController.php
+    │   │   │   ├── manageEmployeeController.php
+    │   │   │   ├── viewEmployeeController.php
+    │   │   │   ├── Backend/
+    │   │   │   │   └── UserController.php
+    │   │   │   ├── Frontend/
+    │   │   │   │   ├── ClientController.php
+    │   │   │   │   └── homeController.php
+    │   │   │   └── admin/
+    │   │   │       └── ProvidentController.php
+    │   │   └── Middleware/
+    │   │       ├── Authenticate.php
+    │   │       ├── EncryptCookies.php
+    │   │       ├── IsAdmin.php
+    │   │       ├── IsEmployee.php
+    │   │       ├── PreventRequestsDuringMaintenance.php
+    │   │       ├── RedirectIfAuthenticated.php
+    │   │       ├── TrimStrings.php
+    │   │       ├── TrustHosts.php
+    │   │       ├── TrustProxies.php
+    │   │       ├── ValidateSignature.php
+    │   │       └── VerifyCsrfToken.php
+    │   ├── Models/
+    │   │   ├── Attendance.php
+    │   │   ├── Client.php
+    │   │   ├── Contact.php
+    │   │   ├── Department.php
+    │   │   ├── Designation.php
+    │   │   ├── Employee.php
+    │   │   ├── Leave.php
+    │   │   ├── LeaveType.php
+    │   │   ├── Notify.php
+    │   │   ├── Payroll.php
+    │   │   ├── ProvidentFund.php
+    │   │   ├── SalaryStructure.php
+    │   │   ├── Service.php
+    │   │   ├── Task.php
+    │   │   └── User.php
+    │   └── Providers/
+    │       ├── AppServiceProvider.php
+    │       ├── AuthServiceProvider.php
+    │       ├── BroadcastServiceProvider.php
+    │       ├── EventServiceProvider.php
+    │       └── RouteServiceProvider.php
+    ├── bootstrap/
+    │   ├── app.php
+    │   └── cache/
+    │       └── .gitignore
+    ├── config/
+    │   ├── app.php
+    │   ├── auth.php
+    │   ├── broadcasting.php
+    │   ├── cache.php
+    │   ├── cors.php
+    │   ├── database.php
+    │   ├── filesystems.php
+    │   ├── hashing.php
+    │   ├── logging.php
+    │   ├── mail.php
+    │   ├── notify.php
+    │   ├── queue.php
+    │   ├── sanctum.php
+    │   ├── services.php
+    │   ├── session.php
+    │   └── view.php
+    ├── database/
+    │   ├── .gitignore
+    │   ├── factories/
+    │   │   └── UserFactory.php
+    │   ├── migrations/
+    │   │   ├── 2014_10_12_000000_create_users_table.php
+    │   │   ├── 2014_10_12_100000_create_password_resets_table.php
+    │   │   ├── 2019_08_19_000000_create_failed_jobs_table.php
+    │   │   ├── 2019_12_14_000001_create_personal_access_tokens_table.php
+    │   │   ├── 2023_10_22_174442_create_employees_table.php
+    │   │   ├── 2023_10_30_160550_create_attendances_table.php
+    │   │   ├── 2023_11_07_180937_create_leaves_table.php
+    │   │   ├── 2023_11_13_171457_create_departments_table.php
+    │   │   ├── 2023_11_15_171351_create_designations_table.php
+    │   │   ├── 2023_11_24_043857_create_services_table.php
+    │   │   ├── 2023_11_24_131622_create_notifies_table.php
+    │   │   ├── 2023_11_30_180906_create_leave_types_table.php
+    │   │   ├── 2023_12_03_183740_create_salary_structures_table.php
+    │   │   ├── 2023_12_03_183752_create_payrolls_table.php
+    │   │   ├── 2023_12_21_000353_create_contacts_table.php
+    │   │   ├── 2024_01_03_024414_create_tasks_table.php
+    │   │   ├── 2024_01_05_161518_create_clients_table.php
+    │   │   └── 2024_08_30_215159_create_provident_funds_table.php
+    │   └── seeders/
+    │       ├── DatabaseSeeder.php
+    │       └── UserstableSeeder.php
+    ├── lang/
+    │   └── en/
+    │       ├── auth.php
+    │       ├── pagination.php
+    │       ├── passwords.php
+    │       └── validation.php
+    ├── public/
+    │   ├── index.php
+    │   ├── robots.txt
+    │   ├── .htaccess
+    │   ├── admin-assets/
+    │   │   ├── css/
+    │   │   │   ├── adminlte.css
+    │   │   │   ├── custom.css
+    │   │   │   ├── datetimepicker.css
+    │   │   │   └── alt/
+    │   │   │       ├── adminlte.components.css
+    │   │   │       ├── adminlte.core.css
+    │   │   │       ├── adminlte.extra-components.css
+    │   │   │       ├── adminlte.light.css
+    │   │   │       ├── adminlte.pages.css
+    │   │   │       └── adminlte.plugins.css
+    │   │   ├── datetime/
+    │   │   │   ├── datetimepicker.css
+    │   │   │   ├── datetimepicker.js
+    │   │   │   └── index.html
+    │   │   ├── img/
+    │   │   │   └── credit/
+    │   │   ├── js/
+    │   │   │   ├── adminlte.js
+    │   │   │   ├── datetimepicker.js
+    │   │   │   ├── demo.js
+    │   │   │   ├── .eslintrc.json
+    │   │   │   └── pages/
+    │   │   │       ├── dashboard.js
+    │   │   │       ├── dashboard2.js
+    │   │   │       └── dashboard3.js
+    │   │   └── plugins/
+    │   │       ├── bootstrap/
+    │   │       │   └── js/
+    │   │       │       ├── bootstrap.bundle.js
+    │   │       │       └── bootstrap.js
+    │   │       ├── bootstrap-colorpicker/
+    │   │       │   ├── css/
+    │   │       │   │   └── bootstrap-colorpicker.css
+    │   │       │   └── js/
+    │   │       │       └── bootstrap-colorpicker.js
+    │   │       ├── bootstrap-slider/
+    │   │       │   ├── bootstrap-slider.js
+    │   │       │   └── css/
+    │   │       │       └── bootstrap-slider.css
+    │   │       ├── bootstrap-switch/
+    │   │       │   ├── css/
+    │   │       │   │   ├── bootstrap2/
+    │   │       │   │   │   └── bootstrap-switch.css
+    │   │       │   │   └── bootstrap3/
+    │   │       │   │       └── bootstrap-switch.css
+    │   │       │   └── js/
+    │   │       │       └── bootstrap-switch.js
+    │   │       ├── bootstrap4-duallistbox/
+    │   │       │   ├── bootstrap-duallistbox.css
+    │   │       │   └── jquery.bootstrap-duallistbox.js
+    │   │       ├── bs-custom-file-input/
+    │   │       │   └── bs-custom-file-input.js
+    │   │       ├── bs-stepper/
+    │   │       │   ├── css/
+    │   │       │   │   └── bs-stepper.css
+    │   │       │   └── js/
+    │   │       │       └── bs-stepper.js
+    │   │       ├── chart.js/
+    │   │       │   ├── Chart.bundle.js
+    │   │       │   ├── Chart.css
+    │   │       │   └── Chart.js
+    │   │       ├── codemirror/
+    │   │       │   ├── codemirror.css
+    │   │       │   ├── codemirror.js
+    │   │       │   ├── addon/
+    │   │       │   │   ├── comment/
+    │   │       │   │   │   ├── comment.js
+    │   │       │   │   │   └── continuecomment.js
+    │   │       │   │   ├── dialog/
+    │   │       │   │   │   ├── dialog.css
+    │   │       │   │   │   └── dialog.js
+    │   │       │   │   ├── display/
+    │   │       │   │   │   ├── autorefresh.js
+    │   │       │   │   │   ├── fullscreen.css
+    │   │       │   │   │   ├── fullscreen.js
+    │   │       │   │   │   ├── panel.js
+    │   │       │   │   │   ├── placeholder.js
+    │   │       │   │   │   └── rulers.js
+    │   │       │   │   ├── edit/
+    │   │       │   │   │   ├── closebrackets.js
+    │   │       │   │   │   ├── closetag.js
+    │   │       │   │   │   ├── continuelist.js
+    │   │       │   │   │   ├── matchbrackets.js
+    │   │       │   │   │   ├── matchtags.js
+    │   │       │   │   │   └── trailingspace.js
+    │   │       │   │   ├── fold/
+    │   │       │   │   │   ├── brace-fold.js
+    │   │       │   │   │   ├── comment-fold.js
+    │   │       │   │   │   ├── foldcode.js
+    │   │       │   │   │   ├── foldgutter.css
+    │   │       │   │   │   ├── foldgutter.js
+    │   │       │   │   │   ├── indent-fold.js
+    │   │       │   │   │   ├── markdown-fold.js
+    │   │       │   │   │   └── xml-fold.js
+    │   │       │   │   ├── hint/
+    │   │       │   │   │   ├── anyword-hint.js
+    │   │       │   │   │   ├── css-hint.js
+    │   │       │   │   │   ├── html-hint.js
+    │   │       │   │   │   ├── javascript-hint.js
+    │   │       │   │   │   ├── show-hint.css
+    │   │       │   │   │   ├── show-hint.js
+    │   │       │   │   │   ├── sql-hint.js
+    │   │       │   │   │   └── xml-hint.js
+    │   │       │   │   ├── lint/
+    │   │       │   │   │   ├── coffeescript-lint.js
+    │   │       │   │   │   ├── css-lint.js
+    │   │       │   │   │   ├── html-lint.js
+    │   │       │   │   │   ├── javascript-lint.js
+    │   │       │   │   │   ├── json-lint.js
+    │   │       │   │   │   ├── lint.css
+    │   │       │   │   │   ├── lint.js
+    │   │       │   │   │   └── yaml-lint.js
+    │   │       │   │   ├── merge/
+    │   │       │   │   │   ├── merge.css
+    │   │       │   │   │   └── merge.js
+    │   │       │   │   ├── mode/
+    │   │       │   │   │   ├── loadmode.js
+    │   │       │   │   │   ├── multiplex.js
+    │   │       │   │   │   ├── multiplex_test.js
+    │   │       │   │   │   ├── overlay.js
+    │   │       │   │   │   └── simple.js
+    │   │       │   │   ├── runmode/
+    │   │       │   │   │   ├── colorize.js
+    │   │       │   │   │   ├── runmode-standalone.js
+    │   │       │   │   │   ├── runmode.js
+    │   │       │   │   │   └── runmode.node.js
+    │   │       │   │   ├── scroll/
+    │   │       │   │   │   ├── annotatescrollbar.js
+    │   │       │   │   │   ├── scrollpastend.js
+    │   │       │   │   │   ├── simplescrollbars.css
+    │   │       │   │   │   └── simplescrollbars.js
+    │   │       │   │   ├── search/
+    │   │       │   │   │   ├── jump-to-line.js
+    │   │       │   │   │   ├── match-highlighter.js
+    │   │       │   │   │   ├── matchesonscrollbar.css
+    │   │       │   │   │   ├── matchesonscrollbar.js
+    │   │       │   │   │   ├── search.js
+    │   │       │   │   │   └── searchcursor.js
+    │   │       │   │   ├── selection/
+    │   │       │   │   │   ├── active-line.js
+    │   │       │   │   │   ├── mark-selection.js
+    │   │       │   │   │   └── selection-pointer.js
+    │   │       │   │   ├── tern/
+    │   │       │   │   │   ├── tern.css
+    │   │       │   │   │   ├── tern.js
+    │   │       │   │   │   └── worker.js
+    │   │       │   │   └── wrap/
+    │   │       │   │       └── hardwrap.js
+    │   │       │   ├── keymap/
+    │   │       │   │   ├── emacs.js
+    │   │       │   │   ├── sublime.js
+    │   │       │   │   └── vim.js
+    │   │       │   ├── mode/
+    │   │       │   │   ├── meta.js
+    │   │       │   │   ├── apl/
+    │   │       │   │   │   └── apl.js
+    │   │       │   │   ├── asciiarmor/
+    │   │       │   │   │   └── asciiarmor.js
+    │   │       │   │   ├── asn.1/
+    │   │       │   │   │   └── asn.1.js
+    │   │       │   │   ├── asterisk/
+    │   │       │   │   │   └── asterisk.js
+    │   │       │   │   ├── brainfuck/
+    │   │       │   │   │   └── brainfuck.js
+    │   │       │   │   ├── clike/
+    │   │       │   │   │   └── clike.js
+    │   │       │   │   ├── clojure/
+    │   │       │   │   │   └── clojure.js
+    │   │       │   │   ├── cmake/
+    │   │       │   │   │   └── cmake.js
+    │   │       │   │   ├── cobol/
+    │   │       │   │   │   └── cobol.js
+    │   │       │   │   ├── coffeescript/
+    │   │       │   │   │   └── coffeescript.js
+    │   │       │   │   ├── commonlisp/
+    │   │       │   │   │   └── commonlisp.js
+    │   │       │   │   ├── crystal/
+    │   │       │   │   │   └── crystal.js
+    │   │       │   │   ├── css/
+    │   │       │   │   │   └── css.js
+    │   │       │   │   ├── cypher/
+    │   │       │   │   │   └── cypher.js
+    │   │       │   │   ├── d/
+    │   │       │   │   │   └── d.js
+    │   │       │   │   ├── dart/
+    │   │       │   │   │   └── dart.js
+    │   │       │   │   ├── diff/
+    │   │       │   │   │   └── diff.js
+    │   │       │   │   ├── django/
+    │   │       │   │   │   └── django.js
+    │   │       │   │   ├── dockerfile/
+    │   │       │   │   │   └── dockerfile.js
+    │   │       │   │   ├── dtd/
+    │   │       │   │   │   └── dtd.js
+    │   │       │   │   ├── dylan/
+    │   │       │   │   │   └── dylan.js
+    │   │       │   │   ├── ebnf/
+    │   │       │   │   │   └── ebnf.js
+    │   │       │   │   ├── ecl/
+    │   │       │   │   │   └── ecl.js
+    │   │       │   │   ├── eiffel/
+    │   │       │   │   │   └── eiffel.js
+    │   │       │   │   ├── elm/
+    │   │       │   │   │   └── elm.js
+    │   │       │   │   ├── erlang/
+    │   │       │   │   │   └── erlang.js
+    │   │       │   │   ├── factor/
+    │   │       │   │   │   └── factor.js
+    │   │       │   │   ├── fcl/
+    │   │       │   │   │   └── fcl.js
+    │   │       │   │   ├── forth/
+    │   │       │   │   │   └── forth.js
+    │   │       │   │   ├── fortran/
+    │   │       │   │   │   └── fortran.js
+    │   │       │   │   ├── gas/
+    │   │       │   │   │   └── gas.js
+    │   │       │   │   ├── gfm/
+    │   │       │   │   │   └── gfm.js
+    │   │       │   │   ├── gherkin/
+    │   │       │   │   │   └── gherkin.js
+    │   │       │   │   ├── go/
+    │   │       │   │   │   └── go.js
+    │   │       │   │   ├── groovy/
+    │   │       │   │   │   └── groovy.js
+    │   │       │   │   ├── haml/
+    │   │       │   │   │   └── haml.js
+    │   │       │   │   ├── handlebars/
+    │   │       │   │   │   └── handlebars.js
+    │   │       │   │   ├── haskell/
+    │   │       │   │   │   └── haskell.js
+    │   │       │   │   ├── haskell-literate/
+    │   │       │   │   │   └── haskell-literate.js
+    │   │       │   │   ├── haxe/
+    │   │       │   │   │   └── haxe.js
+    │   │       │   │   ├── htmlembedded/
+    │   │       │   │   │   └── htmlembedded.js
+    │   │       │   │   ├── htmlmixed/
+    │   │       │   │   │   └── htmlmixed.js
+    │   │       │   │   ├── http/
+    │   │       │   │   │   └── http.js
+    │   │       │   │   ├── idl/
+    │   │       │   │   │   └── idl.js
+    │   │       │   │   ├── javascript/
+    │   │       │   │   │   └── javascript.js
+    │   │       │   │   ├── jinja2/
+    │   │       │   │   │   └── jinja2.js
+    │   │       │   │   ├── jsx/
+    │   │       │   │   │   └── jsx.js
+    │   │       │   │   ├── julia/
+    │   │       │   │   │   └── julia.js
+    │   │       │   │   ├── livescript/
+    │   │       │   │   │   └── livescript.js
+    │   │       │   │   ├── lua/
+    │   │       │   │   │   └── lua.js
+    │   │       │   │   ├── markdown/
+    │   │       │   │   │   └── markdown.js
+    │   │       │   │   ├── mathematica/
+    │   │       │   │   │   └── mathematica.js
+    │   │       │   │   ├── mbox/
+    │   │       │   │   │   └── mbox.js
+    │   │       │   │   ├── mirc/
+    │   │       │   │   │   └── mirc.js
+    │   │       │   │   ├── mllike/
+    │   │       │   │   │   └── mllike.js
+    │   │       │   │   ├── modelica/
+    │   │       │   │   │   └── modelica.js
+    │   │       │   │   ├── mscgen/
+    │   │       │   │   │   └── mscgen.js
+    │   │       │   │   ├── mumps/
+    │   │       │   │   │   └── mumps.js
+    │   │       │   │   ├── nginx/
+    │   │       │   │   │   └── nginx.js
+    │   │       │   │   ├── nsis/
+    │   │       │   │   │   └── nsis.js
+    │   │       │   │   ├── ntriples/
+    │   │       │   │   │   └── ntriples.js
+    │   │       │   │   ├── octave/
+    │   │       │   │   │   └── octave.js
+    │   │       │   │   ├── oz/
+    │   │       │   │   │   └── oz.js
+    │   │       │   │   ├── pascal/
+    │   │       │   │   │   └── pascal.js
+    │   │       │   │   ├── pegjs/
+    │   │       │   │   │   └── pegjs.js
+    │   │       │   │   ├── perl/
+    │   │       │   │   │   └── perl.js
+    │   │       │   │   ├── php/
+    │   │       │   │   │   └── php.js
+    │   │       │   │   ├── pig/
+    │   │       │   │   │   └── pig.js
+    │   │       │   │   ├── powershell/
+    │   │       │   │   │   └── powershell.js
+    │   │       │   │   ├── properties/
+    │   │       │   │   │   └── properties.js
+    │   │       │   │   ├── protobuf/
+    │   │       │   │   │   └── protobuf.js
+    │   │       │   │   ├── pug/
+    │   │       │   │   │   └── pug.js
+    │   │       │   │   ├── puppet/
+    │   │       │   │   │   └── puppet.js
+    │   │       │   │   ├── python/
+    │   │       │   │   │   └── python.js
+    │   │       │   │   ├── q/
+    │   │       │   │   │   └── q.js
+    │   │       │   │   ├── r/
+    │   │       │   │   │   └── r.js
+    │   │       │   │   ├── rpm/
+    │   │       │   │   │   └── rpm.js
+    │   │       │   │   ├── rst/
+    │   │       │   │   │   └── rst.js
+    │   │       │   │   ├── ruby/
+    │   │       │   │   │   └── ruby.js
+    │   │       │   │   ├── rust/
+    │   │       │   │   │   └── rust.js
+    │   │       │   │   ├── sas/
+    │   │       │   │   │   └── sas.js
+    │   │       │   │   ├── sass/
+    │   │       │   │   │   └── sass.js
+    │   │       │   │   ├── scheme/
+    │   │       │   │   │   └── scheme.js
+    │   │       │   │   ├── shell/
+    │   │       │   │   │   └── shell.js
+    │   │       │   │   ├── sieve/
+    │   │       │   │   │   └── sieve.js
+    │   │       │   │   ├── slim/
+    │   │       │   │   │   └── slim.js
+    │   │       │   │   ├── smalltalk/
+    │   │       │   │   │   └── smalltalk.js
+    │   │       │   │   ├── smarty/
+    │   │       │   │   │   └── smarty.js
+    │   │       │   │   ├── solr/
+    │   │       │   │   │   └── solr.js
+    │   │       │   │   ├── soy/
+    │   │       │   │   │   └── soy.js
+    │   │       │   │   ├── sparql/
+    │   │       │   │   │   └── sparql.js
+    │   │       │   │   ├── spreadsheet/
+    │   │       │   │   │   └── spreadsheet.js
+    │   │       │   │   ├── sql/
+    │   │       │   │   │   └── sql.js
+    │   │       │   │   ├── stex/
+    │   │       │   │   │   └── stex.js
+    │   │       │   │   ├── stylus/
+    │   │       │   │   │   └── stylus.js
+    │   │       │   │   ├── swift/
+    │   │       │   │   │   └── swift.js
+    │   │       │   │   ├── tcl/
+    │   │       │   │   │   └── tcl.js
+    │   │       │   │   ├── textile/
+    │   │       │   │   │   └── textile.js
+    │   │       │   │   ├── tiddlywiki/
+    │   │       │   │   │   ├── tiddlywiki.css
+    │   │       │   │   │   └── tiddlywiki.js
+    │   │       │   │   ├── tiki/
+    │   │       │   │   │   ├── tiki.css
+    │   │       │   │   │   └── tiki.js
+    │   │       │   │   ├── toml/
+    │   │       │   │   │   └── toml.js
+    │   │       │   │   ├── tornado/
+    │   │       │   │   │   └── tornado.js
+    │   │       │   │   ├── troff/
+    │   │       │   │   │   └── troff.js
+    │   │       │   │   ├── ttcn/
+    │   │       │   │   │   └── ttcn.js
+    │   │       │   │   ├── ttcn-cfg/
+    │   │       │   │   │   └── ttcn-cfg.js
+    │   │       │   │   ├── turtle/
+    │   │       │   │   │   └── turtle.js
+    │   │       │   │   ├── twig/
+    │   │       │   │   │   └── twig.js
+    │   │       │   │   ├── vb/
+    │   │       │   │   │   └── vb.js
+    │   │       │   │   ├── vbscript/
+    │   │       │   │   │   └── vbscript.js
+    │   │       │   │   ├── velocity/
+    │   │       │   │   │   └── velocity.js
+    │   │       │   │   ├── verilog/
+    │   │       │   │   │   └── verilog.js
+    │   │       │   │   ├── vhdl/
+    │   │       │   │   │   └── vhdl.js
+    │   │       │   │   ├── vue/
+    │   │       │   │   │   └── vue.js
+    │   │       │   │   ├── wast/
+    │   │       │   │   │   └── wast.js
+    │   │       │   │   ├── webidl/
+    │   │       │   │   │   └── webidl.js
+    │   │       │   │   ├── xml/
+    │   │       │   │   │   └── xml.js
+    │   │       │   │   ├── xquery/
+    │   │       │   │   │   └── xquery.js
+    │   │       │   │   ├── yacas/
+    │   │       │   │   │   └── yacas.js
+    │   │       │   │   ├── yaml/
+    │   │       │   │   │   └── yaml.js
+    │   │       │   │   ├── yaml-frontmatter/
+    │   │       │   │   │   └── yaml-frontmatter.js
+    │   │       │   │   └── z80/
+    │   │       │   │       └── z80.js
+    │   │       │   └── theme/
+    │   │       │       ├── 3024-day.css
+    │   │       │       ├── 3024-night.css
+    │   │       │       ├── abbott.css
+    │   │       │       ├── abcdef.css
+    │   │       │       ├── ambiance-mobile.css
+    │   │       │       ├── ambiance.css
+    │   │       │       ├── ayu-dark.css
+    │   │       │       ├── ayu-mirage.css
+    │   │       │       ├── base16-dark.css
+    │   │       │       ├── base16-light.css
+    │   │       │       ├── bespin.css
+    │   │       │       ├── blackboard.css
+    │   │       │       ├── cobalt.css
+    │   │       │       ├── colorforth.css
+    │   │       │       ├── darcula.css
+    │   │       │       ├── dracula.css
+    │   │       │       ├── duotone-dark.css
+    │   │       │       ├── duotone-light.css
+    │   │       │       ├── eclipse.css
+    │   │       │       ├── elegant.css
+    │   │       │       ├── erlang-dark.css
+    │   │       │       ├── gruvbox-dark.css
+    │   │       │       ├── hopscotch.css
+    │   │       │       ├── icecoder.css
+    │   │       │       ├── idea.css
+    │   │       │       ├── isotope.css
+    │   │       │       ├── juejin.css
+    │   │       │       ├── lesser-dark.css
+    │   │       │       ├── liquibyte.css
+    │   │       │       ├── lucario.css
+    │   │       │       ├── material-darker.css
+    │   │       │       ├── material-ocean.css
+    │   │       │       ├── material-palenight.css
+    │   │       │       ├── material.css
+    │   │       │       ├── mbo.css
+    │   │       │       ├── mdn-like.css
+    │   │       │       ├── midnight.css
+    │   │       │       ├── monokai.css
+    │   │       │       ├── moxer.css
+    │   │       │       ├── neat.css
+    │   │       │       ├── neo.css
+    │   │       │       ├── night.css
+    │   │       │       ├── nord.css
+    │   │       │       ├── oceanic-next.css
+    │   │       │       ├── panda-syntax.css
+    │   │       │       ├── paraiso-dark.css
+    │   │       │       ├── paraiso-light.css
+    │   │       │       ├── pastel-on-dark.css
+    │   │       │       ├── railscasts.css
+    │   │       │       ├── rubyblue.css
+    │   │       │       ├── seti.css
+    │   │       │       ├── shadowfox.css
+    │   │       │       ├── solarized.css
+    │   │       │       ├── ssms.css
+    │   │       │       ├── the-matrix.css
+    │   │       │       ├── tomorrow-night-bright.css
+    │   │       │       ├── tomorrow-night-eighties.css
+    │   │       │       ├── ttcn.css
+    │   │       │       ├── twilight.css
+    │   │       │       ├── vibrant-ink.css
+    │   │       │       ├── xq-dark.css
+    │   │       │       ├── xq-light.css
+    │   │       │       ├── yeti.css
+    │   │       │       ├── yonce.css
+    │   │       │       └── zenburn.css
+    │   │       ├── datatables/
+    │   │       │   └── jquery.dataTables.js
+    │   │       ├── datatables-autofill/
+    │   │       │   ├── css/
+    │   │       │   │   └── autoFill.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── autoFill.bootstrap4.js
+    │   │       │       └── dataTables.autoFill.js
+    │   │       ├── datatables-bs4/
+    │   │       │   ├── css/
+    │   │       │   │   └── dataTables.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       └── dataTables.bootstrap4.js
+    │   │       ├── datatables-buttons/
+    │   │       │   ├── css/
+    │   │       │   │   └── buttons.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── buttons.bootstrap4.js
+    │   │       │       ├── buttons.colVis.js
+    │   │       │       ├── buttons.flash.js
+    │   │       │       ├── buttons.html5.js
+    │   │       │       ├── buttons.print.js
+    │   │       │       └── dataTables.buttons.js
+    │   │       ├── datatables-colreorder/
+    │   │       │   ├── css/
+    │   │       │   │   └── colReorder.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── colReorder.bootstrap4.js
+    │   │       │       └── dataTables.colReorder.js
+    │   │       ├── datatables-fixedcolumns/
+    │   │       │   ├── css/
+    │   │       │   │   └── fixedColumns.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.fixedColumns.js
+    │   │       │       └── fixedColumns.bootstrap4.js
+    │   │       ├── datatables-fixedheader/
+    │   │       │   ├── css/
+    │   │       │   │   └── fixedHeader.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.fixedHeader.js
+    │   │       │       └── fixedHeader.bootstrap4.js
+    │   │       ├── datatables-keytable/
+    │   │       │   ├── css/
+    │   │       │   │   └── keyTable.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.keyTable.js
+    │   │       │       └── keyTable.bootstrap4.js
+    │   │       ├── datatables-responsive/
+    │   │       │   ├── css/
+    │   │       │   │   └── responsive.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.responsive.js
+    │   │       │       └── responsive.bootstrap4.js
+    │   │       ├── datatables-rowgroup/
+    │   │       │   ├── css/
+    │   │       │   │   └── rowGroup.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.rowGroup.js
+    │   │       │       └── rowGroup.bootstrap4.js
+    │   │       ├── datatables-rowreorder/
+    │   │       │   ├── css/
+    │   │       │   │   └── rowReorder.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.rowReorder.js
+    │   │       │       └── rowReorder.bootstrap4.js
+    │   │       ├── datatables-scroller/
+    │   │       │   ├── css/
+    │   │       │   │   └── scroller.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.scroller.js
+    │   │       │       └── scroller.bootstrap4.js
+    │   │       ├── datatables-searchbuilder/
+    │   │       │   ├── css/
+    │   │       │   │   └── searchBuilder.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.searchBuilder.js
+    │   │       │       └── searchBuilder.bootstrap4.js
+    │   │       ├── datatables-searchpanes/
+    │   │       │   ├── css/
+    │   │       │   │   └── searchPanes.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.searchPanes.js
+    │   │       │       └── searchPanes.bootstrap4.js
+    │   │       ├── datatables-select/
+    │   │       │   ├── css/
+    │   │       │   │   └── select.bootstrap4.css
+    │   │       │   └── js/
+    │   │       │       ├── dataTables.select.js
+    │   │       │       └── select.bootstrap4.js
+    │   │       ├── daterangepicker/
+    │   │       │   ├── daterangepicker.css
+    │   │       │   └── daterangepicker.js
+    │   │       ├── dropzone/
+    │   │       │   ├── basic.css
+    │   │       │   ├── dropzone-amd-module.js
+    │   │       │   ├── dropzone.css
+    │   │       │   ├── dropzone.js
+    │   │       │   └── min/
+    │   │       │       ├── basic.css
+    │   │       │       └── dropzone.css
+    │   │       ├── ekko-lightbox/
+    │   │       │   ├── ekko-lightbox.css
+    │   │       │   └── ekko-lightbox.js
+    │   │       ├── fastclick/
+    │   │       │   └── fastclick.js
+    │   │       ├── filterizr/
+    │   │       ├── flag-icon-css/
+    │   │       │   ├── css/
+    │   │       │   │   ├── flag-icon.css
+    │   │       │   │   └── flag-icons.css
+    │   │       │   └── flags/
+    │   │       │       ├── 1x1/
+    │   │       │       └── 4x3/
+    │   │       ├── flot/
+    │   │       │   ├── jquery.flot.js
+    │   │       │   └── plugins/
+    │   │       │       ├── jquery.flot.axislabels.js
+    │   │       │       ├── jquery.flot.browser.js
+    │   │       │       ├── jquery.flot.categories.js
+    │   │       │       ├── jquery.flot.composeImages.js
+    │   │       │       ├── jquery.flot.crosshair.js
+    │   │       │       ├── jquery.flot.drawSeries.js
+    │   │       │       ├── jquery.flot.errorbars.js
+    │   │       │       ├── jquery.flot.fillbetween.js
+    │   │       │       ├── jquery.flot.flatdata.js
+    │   │       │       ├── jquery.flot.hover.js
+    │   │       │       ├── jquery.flot.image.js
+    │   │       │       ├── jquery.flot.legend.js
+    │   │       │       ├── jquery.flot.logaxis.js
+    │   │       │       ├── jquery.flot.navigate.js
+    │   │       │       ├── jquery.flot.pie.js
+    │   │       │       ├── jquery.flot.resize.js
+    │   │       │       ├── jquery.flot.saturated.js
+    │   │       │       ├── jquery.flot.selection.js
+    │   │       │       ├── jquery.flot.stack.js
+    │   │       │       ├── jquery.flot.symbol.js
+    │   │       │       ├── jquery.flot.threshold.js
+    │   │       │       ├── jquery.flot.time.js
+    │   │       │       ├── jquery.flot.touch.js
+    │   │       │       ├── jquery.flot.touchNavigate.js
+    │   │       │       └── jquery.flot.uiConstants.js
+    │   │       ├── fontawesome-free/
+    │   │       │   ├── css/
+    │   │       │   │   ├── all.css
+    │   │       │   │   ├── brands.css
+    │   │       │   │   ├── fontawesome.css
+    │   │       │   │   ├── regular.css
+    │   │       │   │   ├── solid.css
+    │   │       │   │   ├── svg-with-js.css
+    │   │       │   │   └── v4-shims.css
+    │   │       │   └── webfonts/
+    │   │       │       ├── fa-brands-400.eot
+    │   │       │       ├── fa-brands-400.ttf
+    │   │       │       ├── fa-brands-400.woff
+    │   │       │       ├── fa-brands-400.woff2
+    │   │       │       ├── fa-regular-400.eot
+    │   │       │       ├── fa-regular-400.ttf
+    │   │       │       ├── fa-regular-400.woff
+    │   │       │       ├── fa-regular-400.woff2
+    │   │       │       ├── fa-solid-900.eot
+    │   │       │       ├── fa-solid-900.ttf
+    │   │       │       ├── fa-solid-900.woff
+    │   │       │       └── fa-solid-900.woff2
+    │   │       ├── fullcalendar/
+    │   │       │   ├── LICENSE.txt
+    │   │       │   ├── locales-all.js
+    │   │       │   ├── main.css
+    │   │       │   ├── main.js
+    │   │       │   └── locales/
+    │   │       │       ├── af.js
+    │   │       │       ├── ar-dz.js
+    │   │       │       ├── ar-kw.js
+    │   │       │       ├── ar-ly.js
+    │   │       │       ├── ar-ma.js
+    │   │       │       ├── ar-sa.js
+    │   │       │       ├── ar-tn.js
+    │   │       │       ├── ar.js
+    │   │       │       ├── az.js
+    │   │       │       ├── bg.js
+    │   │       │       ├── bn.js
+    │   │       │       ├── bs.js
+    │   │       │       ├── ca.js
+    │   │       │       ├── cs.js
+    │   │       │       ├── cy.js
+    │   │       │       ├── da.js
+    │   │       │       ├── de-at.js
+    │   │       │       ├── de.js
+    │   │       │       ├── el.js
+    │   │       │       ├── en-au.js
+    │   │       │       ├── en-gb.js
+    │   │       │       ├── en-nz.js
+    │   │       │       ├── eo.js
+    │   │       │       ├── es-us.js
+    │   │       │       ├── es.js
+    │   │       │       ├── et.js
+    │   │       │       ├── eu.js
+    │   │       │       ├── fa.js
+    │   │       │       ├── fi.js
+    │   │       │       ├── fr-ca.js
+    │   │       │       ├── fr-ch.js
+    │   │       │       ├── fr.js
+    │   │       │       ├── gl.js
+    │   │       │       ├── he.js
+    │   │       │       ├── hi.js
+    │   │       │       ├── hr.js
+    │   │       │       ├── hu.js
+    │   │       │       ├── hy-am.js
+    │   │       │       ├── id.js
+    │   │       │       ├── is.js
+    │   │       │       ├── it.js
+    │   │       │       ├── ja.js
+    │   │       │       ├── ka.js
+    │   │       │       ├── kk.js
+    │   │       │       ├── km.js
+    │   │       │       ├── ko.js
+    │   │       │       ├── ku.js
+    │   │       │       ├── lb.js
+    │   │       │       ├── lt.js
+    │   │       │       ├── lv.js
+    │   │       │       ├── mk.js
+    │   │       │       ├── ms.js
+    │   │       │       ├── nb.js
+    │   │       │       ├── ne.js
+    │   │       │       ├── nl.js
+    │   │       │       ├── nn.js
+    │   │       │       ├── pl.js
+    │   │       │       ├── pt-br.js
+    │   │       │       ├── pt.js
+    │   │       │       ├── ro.js
+    │   │       │       ├── ru.js
+    │   │       │       ├── si-lk.js
+    │   │       │       ├── sk.js
+    │   │       │       ├── sl.js
+    │   │       │       ├── sm.js
+    │   │       │       ├── sq.js
+    │   │       │       ├── sr-cyrl.js
+    │   │       │       ├── sr.js
+    │   │       │       ├── sv.js
+    │   │       │       ├── ta-in.js
+    │   │       │       ├── th.js
+    │   │       │       ├── tr.js
+    │   │       │       ├── ug.js
+    │   │       │       ├── uk.js
+    │   │       │       ├── uz.js
+    │   │       │       ├── vi.js
+    │   │       │       ├── zh-cn.js
+    │   │       │       └── zh-tw.js
+    │   │       ├── icheck-bootstrap/
+    │   │       │   ├── LICENSE
+    │   │       │   └── icheck-bootstrap.css
+    │   │       ├── inputmask/
+    │   │       │   ├── inputmask.es6.js
+    │   │       │   ├── inputmask.js
+    │   │       │   └── jquery.inputmask.js
+    │   │       ├── ion-rangeslider/
+    │   │       │   ├── License.md
+    │   │       │   ├── css/
+    │   │       │   │   └── ion.rangeSlider.css
+    │   │       │   └── js/
+    │   │       │       └── ion.rangeSlider.js
+    │   │       ├── jquery/
+    │   │       │   ├── jquery.js
+    │   │       │   └── jquery.slim.js
+    │   │       ├── jquery-knob/
+    │   │       ├── jquery-mapael/
+    │   │       │   ├── jquery.mapael.js
+    │   │       │   └── maps/
+    │   │       │       ├── README.txt
+    │   │       │       ├── france_departments.js
+    │   │       │       ├── usa_states.js
+    │   │       │       ├── world_countries.js
+    │   │       │       ├── world_countries_mercator.js
+    │   │       │       └── world_countries_miller.js
+    │   │       ├── jquery-mousewheel/
+    │   │       │   ├── LICENSE.txt
+    │   │       │   └── jquery.mousewheel.js
+    │   │       ├── jquery-ui/
+    │   │       │   ├── LICENSE.txt
+    │   │       │   ├── jquery-ui.css
+    │   │       │   ├── jquery-ui.js
+    │   │       │   ├── jquery-ui.structure.css
+    │   │       │   ├── jquery-ui.theme.css
+    │   │       │   └── images/
+    │   │       ├── jquery-validation/
+    │   │       │   ├── additional-methods.js
+    │   │       │   ├── jquery.validate.js
+    │   │       │   └── localization/
+    │   │       │       ├── messages_ar.js
+    │   │       │       ├── messages_az.js
+    │   │       │       ├── messages_bg.js
+    │   │       │       ├── messages_bn_BD.js
+    │   │       │       ├── messages_ca.js
+    │   │       │       ├── messages_cs.js
+    │   │       │       ├── messages_da.js
+    │   │       │       ├── messages_de.js
+    │   │       │       ├── messages_el.js
+    │   │       │       ├── messages_es.js
+    │   │       │       ├── messages_es_AR.js
+    │   │       │       ├── messages_es_PE.js
+    │   │       │       ├── messages_et.js
+    │   │       │       ├── messages_eu.js
+    │   │       │       ├── messages_fa.js
+    │   │       │       ├── messages_fi.js
+    │   │       │       ├── messages_fr.js
+    │   │       │       ├── messages_ge.js
+    │   │       │       ├── messages_gl.js
+    │   │       │       ├── messages_he.js
+    │   │       │       ├── messages_hr.js
+    │   │       │       ├── messages_hu.js
+    │   │       │       ├── messages_hy_AM.js
+    │   │       │       ├── messages_id.js
+    │   │       │       ├── messages_is.js
+    │   │       │       ├── messages_it.js
+    │   │       │       ├── messages_ja.js
+    │   │       │       ├── messages_ka.js
+    │   │       │       ├── messages_kk.js
+    │   │       │       ├── messages_ko.js
+    │   │       │       ├── messages_lt.js
+    │   │       │       ├── messages_lv.js
+    │   │       │       ├── messages_mk.js
+    │   │       │       ├── messages_my.js
+    │   │       │       ├── messages_nl.js
+    │   │       │       ├── messages_no.js
+    │   │       │       ├── messages_pl.js
+    │   │       │       ├── messages_pt_BR.js
+    │   │       │       ├── messages_pt_PT.js
+    │   │       │       ├── messages_ro.js
+    │   │       │       ├── messages_ru.js
+    │   │       │       ├── messages_sd.js
+    │   │       │       ├── messages_si.js
+    │   │       │       ├── messages_sk.js
+    │   │       │       ├── messages_sl.js
+    │   │       │       ├── messages_sr.js
+    │   │       │       ├── messages_sr_lat.js
+    │   │       │       ├── messages_sv.js
+    │   │       │       ├── messages_th.js
+    │   │       │       ├── messages_tj.js
+    │   │       │       ├── messages_tr.js
+    │   │       │       ├── messages_uk.js
+    │   │       │       ├── messages_ur.js
+    │   │       │       ├── messages_vi.js
+    │   │       │       ├── messages_zh.js
+    │   │       │       ├── messages_zh_TW.js
+    │   │       │       ├── methods_de.js
+    │   │       │       ├── methods_es_CL.js
+    │   │       │       ├── methods_fi.js
+    │   │       │       ├── methods_it.js
+    │   │       │       ├── methods_nl.js
+    │   │       │       └── methods_pt.js
+    │   │       ├── jqvmap/
+    │   │       │   ├── jquery.vmap.js
+    │   │       │   ├── jqvmap.css
+    │   │       │   └── maps/
+    │   │       │       ├── jquery.vmap.algeria.js
+    │   │       │       ├── jquery.vmap.argentina.js
+    │   │       │       ├── jquery.vmap.brazil.js
+    │   │       │       ├── jquery.vmap.canada.js
+    │   │       │       ├── jquery.vmap.croatia.js
+    │   │       │       ├── jquery.vmap.europe.js
+    │   │       │       ├── jquery.vmap.france.js
+    │   │       │       ├── jquery.vmap.germany.js
+    │   │       │       ├── jquery.vmap.greece.js
+    │   │       │       ├── jquery.vmap.indonesia.js
+    │   │       │       ├── jquery.vmap.iran.js
+    │   │       │       ├── jquery.vmap.iraq.js
+    │   │       │       ├── jquery.vmap.new_regions_france.js
+    │   │       │       ├── jquery.vmap.russia.js
+    │   │       │       ├── jquery.vmap.serbia.js
+    │   │       │       ├── jquery.vmap.tunisia.js
+    │   │       │       ├── jquery.vmap.turkey.js
+    │   │       │       ├── jquery.vmap.ukraine.js
+    │   │       │       ├── jquery.vmap.usa.counties.js
+    │   │       │       ├── jquery.vmap.usa.districts.js
+    │   │       │       ├── jquery.vmap.usa.js
+    │   │       │       ├── jquery.vmap.world.js
+    │   │       │       └── continents/
+    │   │       │           ├── jquery.vmap.africa.js
+    │   │       │           ├── jquery.vmap.asia.js
+    │   │       │           ├── jquery.vmap.australia.js
+    │   │       │           ├── jquery.vmap.europe.js
+    │   │       │           ├── jquery.vmap.north-america.js
+    │   │       │           └── jquery.vmap.south-america.js
+    │   │       ├── jsgrid/
+    │   │       │   ├── jsgrid-theme.css
+    │   │       │   ├── jsgrid.css
+    │   │       │   ├── jsgrid.js
+    │   │       │   ├── demos/
+    │   │       │   │   └── db.js
+    │   │       │   └── i18n/
+    │   │       │       ├── jsgrid-de.js
+    │   │       │       ├── jsgrid-es.js
+    │   │       │       ├── jsgrid-fr.js
+    │   │       │       ├── jsgrid-he.js
+    │   │       │       ├── jsgrid-ja.js
+    │   │       │       ├── jsgrid-ka.js
+    │   │       │       ├── jsgrid-pl.js
+    │   │       │       ├── jsgrid-pt-br.js
+    │   │       │       ├── jsgrid-pt.js
+    │   │       │       ├── jsgrid-ru.js
+    │   │       │       ├── jsgrid-tr.js
+    │   │       │       ├── jsgrid-zh-cn.js
+    │   │       │       └── jsgrid-zh-tw.js
+    │   │       ├── jszip/
+    │   │       │   └── jszip.js
+    │   │       ├── moment/
+    │   │       │   ├── locales.js
+    │   │       │   ├── moment-with-locales.js
+    │   │       │   └── locale/
+    │   │       │       ├── af.js
+    │   │       │       ├── ar-dz.js
+    │   │       │       ├── ar-kw.js
+    │   │       │       ├── ar-ly.js
+    │   │       │       ├── ar-ma.js
+    │   │       │       ├── ar-sa.js
+    │   │       │       ├── ar-tn.js
+    │   │       │       ├── ar.js
+    │   │       │       ├── az.js
+    │   │       │       ├── be.js
+    │   │       │       ├── bg.js
+    │   │       │       ├── bm.js
+    │   │       │       ├── bn-bd.js
+    │   │       │       ├── bn.js
+    │   │       │       ├── bo.js
+    │   │       │       ├── br.js
+    │   │       │       ├── bs.js
+    │   │       │       ├── ca.js
+    │   │       │       ├── cs.js
+    │   │       │       ├── cv.js
+    │   │       │       ├── cy.js
+    │   │       │       ├── da.js
+    │   │       │       ├── de-at.js
+    │   │       │       ├── de-ch.js
+    │   │       │       ├── de.js
+    │   │       │       ├── dv.js
+    │   │       │       ├── el.js
+    │   │       │       ├── en-SG.js
+    │   │       │       ├── en-au.js
+    │   │       │       ├── en-ca.js
+    │   │       │       ├── en-gb.js
+    │   │       │       ├── en-ie.js
+    │   │       │       ├── en-il.js
+    │   │       │       ├── en-in.js
+    │   │       │       ├── en-nz.js
+    │   │       │       ├── eo.js
+    │   │       │       ├── es-do.js
+    │   │       │       ├── es-mx.js
+    │   │       │       ├── es-us.js
+    │   │       │       ├── es.js
+    │   │       │       ├── et.js
+    │   │       │       ├── eu.js
+    │   │       │       ├── fa.js
+    │   │       │       ├── fi.js
+    │   │       │       ├── fil.js
+    │   │       │       ├── fo.js
+    │   │       │       ├── fr-ca.js
+    │   │       │       ├── fr-ch.js
+    │   │       │       ├── fr.js
+    │   │       │       ├── fy.js
+    │   │       │       ├── ga.js
+    │   │       │       ├── gd.js
+    │   │       │       ├── gl.js
+    │   │       │       ├── gom-deva.js
+    │   │       │       ├── gom-latn.js
+    │   │       │       ├── gu.js
+    │   │       │       ├── he.js
+    │   │       │       ├── hi.js
+    │   │       │       ├── hr.js
+    │   │       │       ├── hu.js
+    │   │       │       ├── hy-am.js
+    │   │       │       ├── id.js
+    │   │       │       ├── is.js
+    │   │       │       ├── it-ch.js
+    │   │       │       ├── it.js
+    │   │       │       ├── ja.js
+    │   │       │       ├── jv.js
+    │   │       │       ├── ka.js
+    │   │       │       ├── kk.js
+    │   │       │       ├── km.js
+    │   │       │       ├── kn.js
+    │   │       │       ├── ko.js
+    │   │       │       ├── ku.js
+    │   │       │       ├── ky.js
+    │   │       │       ├── lb.js
+    │   │       │       ├── lo.js
+    │   │       │       ├── lt.js
+    │   │       │       ├── lv.js
+    │   │       │       ├── me.js
+    │   │       │       ├── mi.js
+    │   │       │       ├── mk.js
+    │   │       │       ├── ml.js
+    │   │       │       ├── mn.js
+    │   │       │       ├── mr.js
+    │   │       │       ├── ms-my.js
+    │   │       │       ├── ms.js
+    │   │       │       ├── mt.js
+    │   │       │       ├── my.js
+    │   │       │       ├── nb.js
+    │   │       │       ├── ne.js
+    │   │       │       ├── nl-be.js
+    │   │       │       ├── nl.js
+    │   │       │       ├── nn.js
+    │   │       │       ├── oc-lnc.js
+    │   │       │       ├── pa-in.js
+    │   │       │       ├── pl.js
+    │   │       │       ├── pt-br.js
+    │   │       │       ├── pt.js
+    │   │       │       ├── ro.js
+    │   │       │       ├── ru.js
+    │   │       │       ├── sd.js
+    │   │       │       ├── se.js
+    │   │       │       ├── si.js
+    │   │       │       ├── sk.js
+    │   │       │       ├── sl.js
+    │   │       │       ├── sq.js
+    │   │       │       ├── sr-cyrl.js
+    │   │       │       ├── sr.js
+    │   │       │       ├── ss.js
+    │   │       │       ├── sv.js
+    │   │       │       ├── sw.js
+    │   │       │       ├── ta.js
+    │   │       │       ├── te.js
+    │   │       │       ├── tet.js
+    │   │       │       ├── tg.js
+    │   │       │       ├── th.js
+    │   │       │       ├── tk.js
+    │   │       │       ├── tl-ph.js
+    │   │       │       ├── tlh.js
+    │   │       │       ├── tr.js
+    │   │       │       ├── tzl.js
+    │   │       │       ├── tzm-latn.js
+    │   │       │       ├── tzm.js
+    │   │       │       ├── ug-cn.js
+    │   │       │       ├── uk.js
+    │   │       │       ├── ur.js
+    │   │       │       ├── uz-latn.js
+    │   │       │       ├── uz.js
+    │   │       │       ├── vi.js
+    │   │       │       ├── x-pseudo.js
+    │   │       │       ├── yo.js
+    │   │       │       ├── zh-cn.js
+    │   │       │       ├── zh-hk.js
+    │   │       │       ├── zh-mo.js
+    │   │       │       └── zh-tw.js
+    │   │       ├── overlayScrollbars/
+    │   │       │   ├── css/
+    │   │       │   │   └── OverlayScrollbars.css
+    │   │       │   └── js/
+    │   │       │       ├── OverlayScrollbars.js
+    │   │       │       └── jquery.overlayScrollbars.js
+    │   │       ├── pace-progress/
+    │   │       │   ├── pace.js
+    │   │       │   └── themes/
+    │   │       │       ├── black/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── blue/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── green/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── orange/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── pink/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── purple/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── red/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── silver/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       ├── white/
+    │   │       │       │   ├── pace-theme-barber-shop.css
+    │   │       │       │   ├── pace-theme-big-counter.css
+    │   │       │       │   ├── pace-theme-bounce.css
+    │   │       │       │   ├── pace-theme-center-atom.css
+    │   │       │       │   ├── pace-theme-center-circle.css
+    │   │       │       │   ├── pace-theme-center-radar.css
+    │   │       │       │   ├── pace-theme-center-simple.css
+    │   │       │       │   ├── pace-theme-corner-indicator.css
+    │   │       │       │   ├── pace-theme-fill-left.css
+    │   │       │       │   ├── pace-theme-flash.css
+    │   │       │       │   ├── pace-theme-flat-top.css
+    │   │       │       │   ├── pace-theme-loading-bar.css
+    │   │       │       │   ├── pace-theme-mac-osx.css
+    │   │       │       │   ├── pace-theme-material.css
+    │   │       │       │   └── pace-theme-minimal.css
+    │   │       │       └── yellow/
+    │   │       │           ├── pace-theme-barber-shop.css
+    │   │       │           ├── pace-theme-big-counter.css
+    │   │       │           ├── pace-theme-bounce.css
+    │   │       │           ├── pace-theme-center-atom.css
+    │   │       │           ├── pace-theme-center-circle.css
+    │   │       │           ├── pace-theme-center-radar.css
+    │   │       │           ├── pace-theme-center-simple.css
+    │   │       │           ├── pace-theme-corner-indicator.css
+    │   │       │           ├── pace-theme-fill-left.css
+    │   │       │           ├── pace-theme-flash.css
+    │   │       │           ├── pace-theme-flat-top.css
+    │   │       │           ├── pace-theme-loading-bar.css
+    │   │       │           ├── pace-theme-mac-osx.css
+    │   │       │           ├── pace-theme-material.css
+    │   │       │           └── pace-theme-minimal.css
+    │   │       ├── pdfmake/
+    │   │       │   ├── pdfmake.js
+    │   │       │   └── vfs_fonts.js
+    │   │       ├── popper/
+    │   │       │   ├── popper-utils.js
+    │   │       │   ├── popper.js
+    │   │       │   ├── esm/
+    │   │       │   │   ├── popper-utils.js
+    │   │       │   │   └── popper.js
+    │   │       │   └── umd/
+    │   │       │       ├── popper-utils.js
+    │   │       │       ├── popper.js
+    │   │       │       └── popper.js.flow
+    │   │       ├── raphael/
+    │   │       │   ├── Gruntfile.js
+    │   │       │   ├── license.txt
+    │   │       │   ├── raphael.js
+    │   │       │   └── raphael.no-deps.js
+    │   │       ├── select2/
+    │   │       │   ├── css/
+    │   │       │   │   └── select2.css
+    │   │       │   └── js/
+    │   │       │       ├── select2.full.js
+    │   │       │       ├── select2.js
+    │   │       │       └── i18n/
+    │   │       │           ├── af.js
+    │   │       │           ├── ar.js
+    │   │       │           ├── az.js
+    │   │       │           ├── bg.js
+    │   │       │           ├── bn.js
+    │   │       │           ├── bs.js
+    │   │       │           ├── build.txt
+    │   │       │           ├── ca.js
+    │   │       │           ├── cs.js
+    │   │       │           ├── da.js
+    │   │       │           ├── de.js
+    │   │       │           ├── dsb.js
+    │   │       │           ├── el.js
+    │   │       │           ├── en.js
+    │   │       │           ├── es.js
+    │   │       │           ├── et.js
+    │   │       │           ├── eu.js
+    │   │       │           ├── fa.js
+    │   │       │           ├── fi.js
+    │   │       │           ├── fr.js
+    │   │       │           ├── gl.js
+    │   │       │           ├── he.js
+    │   │       │           ├── hi.js
+    │   │       │           ├── hr.js
+    │   │       │           ├── hsb.js
+    │   │       │           ├── hu.js
+    │   │       │           ├── hy.js
+    │   │       │           ├── id.js
+    │   │       │           ├── is.js
+    │   │       │           ├── it.js
+    │   │       │           ├── ja.js
+    │   │       │           ├── ka.js
+    │   │       │           ├── km.js
+    │   │       │           ├── ko.js
+    │   │       │           ├── lt.js
+    │   │       │           ├── lv.js
+    │   │       │           ├── mk.js
+    │   │       │           ├── ms.js
+    │   │       │           ├── nb.js
+    │   │       │           ├── ne.js
+    │   │       │           ├── nl.js
+    │   │       │           ├── pl.js
+    │   │       │           ├── ps.js
+    │   │       │           ├── pt-BR.js
+    │   │       │           ├── pt.js
+    │   │       │           ├── ro.js
+    │   │       │           ├── ru.js
+    │   │       │           ├── sk.js
+    │   │       │           ├── sl.js
+    │   │       │           ├── sq.js
+    │   │       │           ├── sr-Cyrl.js
+    │   │       │           ├── sr.js
+    │   │       │           ├── sv.js
+    │   │       │           ├── th.js
+    │   │       │           ├── tk.js
+    │   │       │           ├── tr.js
+    │   │       │           ├── uk.js
+    │   │       │           ├── vi.js
+    │   │       │           ├── zh-CN.js
+    │   │       │           └── zh-TW.js
+    │   │       ├── select2-bootstrap4-theme/
+    │   │       │   └── select2-bootstrap4.css
+    │   │       ├── sparklines/
+    │   │       │   ├── sparkline.js
+    │   │       │   └── sparkline.mjs
+    │   │       ├── summernote/
+    │   │       │   ├── summernote-bs4.css
+    │   │       │   ├── summernote-bs4.js
+    │   │       │   ├── summernote-bs4.min.js.LICENSE.txt
+    │   │       │   ├── summernote-bs5.css
+    │   │       │   ├── summernote-bs5.js
+    │   │       │   ├── summernote-lite.css
+    │   │       │   ├── summernote-lite.js
+    │   │       │   ├── summernote-lite.min.js.LICENSE.txt
+    │   │       │   ├── summernote.css
+    │   │       │   ├── summernote.js
+    │   │       │   ├── summernote.min.js.LICENSE.txt
+    │   │       │   ├── font/
+    │   │       │   │   ├── summernote.eot
+    │   │       │   │   ├── summernote.hash
+    │   │       │   │   ├── summernote.ttf
+    │   │       │   │   ├── summernote.woff
+    │   │       │   │   └── summernote.woff2
+    │   │       │   ├── lang/
+    │   │       │   │   ├── summernote-ar-AR.js
+    │   │       │   │   ├── summernote-ar-AR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-az-AZ.js
+    │   │       │   │   ├── summernote-az-AZ.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-bg-BG.js
+    │   │       │   │   ├── summernote-bg-BG.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-bn-BD.js
+    │   │       │   │   ├── summernote-ca-ES.js
+    │   │       │   │   ├── summernote-ca-ES.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-cs-CZ.js
+    │   │       │   │   ├── summernote-cs-CZ.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-da-DK.js
+    │   │       │   │   ├── summernote-da-DK.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-de-CH.js
+    │   │       │   │   ├── summernote-de-DE.js
+    │   │       │   │   ├── summernote-de-DE.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-el-GR.js
+    │   │       │   │   ├── summernote-el-GR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-en-US.js
+    │   │       │   │   ├── summernote-es-ES.js
+    │   │       │   │   ├── summernote-es-ES.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-es-EU.js
+    │   │       │   │   ├── summernote-es-EU.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-fa-IR.js
+    │   │       │   │   ├── summernote-fa-IR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-fi-FI.js
+    │   │       │   │   ├── summernote-fi-FI.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-fr-FR.js
+    │   │       │   │   ├── summernote-fr-FR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-gl-ES.js
+    │   │       │   │   ├── summernote-gl-ES.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-he-IL.js
+    │   │       │   │   ├── summernote-he-IL.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-hr-HR.js
+    │   │       │   │   ├── summernote-hr-HR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-hu-HU.js
+    │   │       │   │   ├── summernote-hu-HU.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-id-ID.js
+    │   │       │   │   ├── summernote-id-ID.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-it-IT.js
+    │   │       │   │   ├── summernote-it-IT.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-ja-JP.js
+    │   │       │   │   ├── summernote-ja-JP.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-ko-KR.js
+    │   │       │   │   ├── summernote-ko-KR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-lt-LT.js
+    │   │       │   │   ├── summernote-lt-LT.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-lt-LV.js
+    │   │       │   │   ├── summernote-lt-LV.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-mn-MN.js
+    │   │       │   │   ├── summernote-mn-MN.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-nb-NO.js
+    │   │       │   │   ├── summernote-nb-NO.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-nl-NL.js
+    │   │       │   │   ├── summernote-nl-NL.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-pl-PL.js
+    │   │       │   │   ├── summernote-pl-PL.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-pt-BR.js
+    │   │       │   │   ├── summernote-pt-BR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-pt-PT.js
+    │   │       │   │   ├── summernote-pt-PT.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-ro-RO.js
+    │   │       │   │   ├── summernote-ro-RO.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-ru-RU.js
+    │   │       │   │   ├── summernote-ru-RU.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-sk-SK.js
+    │   │       │   │   ├── summernote-sk-SK.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-sl-SI.js
+    │   │       │   │   ├── summernote-sl-SI.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-sr-RS-Latin.js
+    │   │       │   │   ├── summernote-sr-RS-Latin.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-sr-RS.js
+    │   │       │   │   ├── summernote-sr-RS.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-sv-SE.js
+    │   │       │   │   ├── summernote-sv-SE.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-ta-IN.js
+    │   │       │   │   ├── summernote-ta-IN.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-th-TH.js
+    │   │       │   │   ├── summernote-th-TH.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-tr-TR.js
+    │   │       │   │   ├── summernote-tr-TR.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-uk-UA.js
+    │   │       │   │   ├── summernote-uk-UA.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-uz-UZ.js
+    │   │       │   │   ├── summernote-uz-UZ.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-vi-VN.js
+    │   │       │   │   ├── summernote-vi-VN.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-zh-CN.js
+    │   │       │   │   ├── summernote-zh-CN.min.js.LICENSE.txt
+    │   │       │   │   ├── summernote-zh-TW.js
+    │   │       │   │   └── summernote-zh-TW.min.js.LICENSE.txt
+    │   │       │   └── plugin/
+    │   │       │       ├── databasic/
+    │   │       │       │   ├── summernote-ext-databasic.css
+    │   │       │       │   └── summernote-ext-databasic.js
+    │   │       │       ├── hello/
+    │   │       │       │   └── summernote-ext-hello.js
+    │   │       │       └── specialchars/
+    │   │       │           └── summernote-ext-specialchars.js
+    │   │       ├── sweetalert2/
+    │   │       │   ├── sweetalert2.all.js
+    │   │       │   ├── sweetalert2.css
+    │   │       │   └── sweetalert2.js
+    │   │       ├── sweetalert2-theme-bootstrap-4/
+    │   │       │   └── bootstrap-4.css
+    │   │       ├── tempusdominus-bootstrap-4/
+    │   │       │   ├── css/
+    │   │       │   │   └── tempusdominus-bootstrap-4.css
+    │   │       │   └── js/
+    │   │       │       └── tempusdominus-bootstrap-4.js
+    │   │       ├── toastr/
+    │   │       │   └── toastr.css
+    │   │       └── uplot/
+    │   │           ├── uPlot.cjs.js
+    │   │           ├── uPlot.esm.js
+    │   │           └── uPlot.iife.js
+    │   ├── assests/
+    │   │   └── image/
+    │   ├── uploads/
+    │   └── vendor/
+    │       └── mckenziearts/
+    │           └── laravel-notify/
+    │               ├── mix-manifest.json
+    │               ├── dist/
+    │               │   └── notify.css
+    │               ├── images/
+    │               └── js/
+    │                   └── notify.js
+    ├── resources/
+    │   ├── css/
+    │   │   └── app.css
+    │   ├── js/
+    │   │   ├── app.js
+    │   │   └── bootstrap.js
+    │   └── views/
+    │       ├── Frontend/
+    │       │   ├── master.blade.php
+    │       │   ├── AboutUs/
+    │       │   │   └── aboutUs.blade.php
+    │       │   ├── pages/
+    │       │   │   ├── ClientList/
+    │       │   │   │   ├── clientForm.blade.php
+    │       │   │   │   ├── clientList.blade.php
+    │       │   │   │   ├── editClientList.blade.php
+    │       │   │   │   └── viewClientList.blade.php
+    │       │   │   ├── JobList/
+    │       │   │   │   └── jobList.blade.php
+    │       │   │   ├── Notice/
+    │       │   │   │   ├── editNoticeList.blade.php
+    │       │   │   │   ├── notice.blade.php
+    │       │   │   │   └── noticeList.blade.php
+    │       │   │   ├── contactUs/
+    │       │   │   │   └── contactUs.blade.php
+    │       │   │   └── serviceSection/
+    │       │   │       ├── serviceCard.blade.php
+    │       │   │       └── serviceDetails.blade.php
+    │       │   └── partials/
+    │       │       ├── footer.blade.php
+    │       │       ├── homeDashboard.blade.php
+    │       │       └── navbar.blade.php
+    │       └── admin/
+    │           ├── master.blade.php
+    │           ├── pages/
+    │           │   ├── dashboard.blade.php
+    │           │   ├── AdminLogin/
+    │           │   │   └── adminLogin.blade.php
+    │           │   ├── Leave/
+    │           │   │   ├── allLeaveReport.blade.php
+    │           │   │   ├── leaveForm.blade.php
+    │           │   │   ├── leaveList.blade.php
+    │           │   │   ├── myLeave.blade.php
+    │           │   │   ├── myLeaveBalance.blade.php
+    │           │   │   ├── myLeaveReport.blade.php
+    │           │   │   ├── searchLeaveList.blade.php
+    │           │   │   └── searchMyLeave.blade.php
+    │           │   ├── Notices/
+    │           │   │   └── notices.blade.php
+    │           │   ├── Organization/
+    │           │   │   ├── Department/
+    │           │   │   │   ├── department.blade.php
+    │           │   │   │   ├── editDepartment.blade.php
+    │           │   │   │   └── searchDepartment.blade.php
+    │           │   │   └── Designation/
+    │           │   │       ├── designation.blade.php
+    │           │   │       ├── designationList.blade.php
+    │           │   │       ├── editDesignation.blade.php
+    │           │   │       └── searchDesignation.blade.php
+    │           │   ├── Payroll/
+    │           │   │   ├── allPayrollList.blade.php
+    │           │   │   ├── createPayroll.blade.php
+    │           │   │   ├── editPayroll.blade.php
+    │           │   │   ├── myPayrollList.blade.php
+    │           │   │   ├── mySinglePayroll.blade.php
+    │           │   │   ├── payrollList.blade.php
+    │           │   │   ├── searchAllPayrollList.blade.php
+    │           │   │   ├── searchMyPayrollList.blade.php
+    │           │   │   └── singlePayrollList.blade.php
+    │           │   ├── Salary/
+    │           │   │   ├── createSalary.blade.php
+    │           │   │   ├── editSalary.blade.php
+    │           │   │   └── viewSalary.blade.php
+    │           │   ├── ServiceSection/
+    │           │   │   ├── editServiceList.blade.php
+    │           │   │   ├── listServicec.blade.php
+    │           │   │   └── serviceForm.blade.php
+    │           │   ├── Task/
+    │           │   │   ├── createTask.blade.php
+    │           │   │   ├── editTask.blade.php
+    │           │   │   ├── myTask.blade.php
+    │           │   │   ├── searchTask.blade.php
+    │           │   │   └── viewTask.blade.php
+    │           │   ├── Users/
+    │           │   │   ├── createForm.blade.php
+    │           │   │   ├── editUser.blade.php
+    │           │   │   ├── employeeProfile.blade.php
+    │           │   │   ├── list.blade.php
+    │           │   │   ├── nonEmployeeProfile.blade.php
+    │           │   │   ├── searchUserList.blade.php
+    │           │   │   └── userProfile.blade.php
+    │           │   ├── attendance/
+    │           │   │   ├── attendance.blade.php
+    │           │   │   ├── attendanceReport.blade.php
+    │           │   │   ├── myAttendance.blade.php
+    │           │   │   ├── myAttendanceReport.blade.php
+    │           │   │   ├── searchMyAttendance.blade.php
+    │           │   │   ├── viewAttendance.blade.php
+    │           │   │   └── viewSearchAttendance.blade.php
+    │           │   ├── contactMessage/
+    │           │   │   └── contactMessage.blade.php
+    │           │   ├── leaveType/
+    │           │   │   ├── editList.blade.php
+    │           │   │   └── formList.blade.php
+    │           │   └── manageEmployee/
+    │           │       ├── EditEmployee.blade.php
+    │           │       ├── addEmployee.blade.php
+    │           │       ├── employeeProfile.blade.php
+    │           │       ├── searchEmployee.blade.php
+    │           │       └── viewEmployee.blade.php
+    │           ├── partials/
+    │           │   ├── header.blade.php
+    │           │   └── sidebar.blade.php
+    │           └── provident/
+    │               ├── employee.blade.php
+    │               ├── employee_no_record.blade.php
+    │               └── list.blade.php
+    ├── routes/
+    │   ├── api.php
+    │   ├── channels.php
+    │   ├── console.php
+    │   └── web.php
+    ├── storage/
+    │   ├── app/
+    │   │   ├── .gitignore
+    │   │   └── public/
+    │   │       └── .gitignore
+    │   ├── framework/
+    │   │   ├── .gitignore
+    │   │   ├── cache/
+    │   │   │   ├── .gitignore
+    │   │   │   └── data/
+    │   │   │       └── .gitignore
+    │   │   ├── sessions/
+    │   │   │   └── .gitignore
+    │   │   ├── testing/
+    │   │   │   └── .gitignore
+    │   │   └── views/
+    │   │       └── .gitignore
+    │   └── logs/
+    │       └── .gitignore
+    └── tests/
+        ├── CreatesApplication.php
+        ├── TestCase.php
+        ├── Feature/
+        │   └── ExampleTest.php
+        └── Unit/
+            └── ExampleTest.php
